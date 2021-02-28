@@ -26,17 +26,7 @@ class Scraper
     student = {}
     
       social = page.css(".vitals-container .social-icon-container a")
-      social.each do |element|
-          if element.attr("href").include?("twitter")
-            student[:twitter] = element.attr("href")
-          elsif element.attr("href").include?("linkedin")
-            student[:linkedin] = element.attr("href")
-          elsif element.attr("href").include?("github")
-            student[:github] = element.attr("href")
-          elsif element.attr("href").end_with?("com/")
-            student[:blog] = element.attr("href")
-          end
-        end
+      
       student[:profile_quote] = page.css("div.profile-quote").text
       student[:bio] = page.css("p").text
       student
